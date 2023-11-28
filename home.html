@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+    <header id="header">
+        <a href="#" class="logo">Budget Calculator</a>
+
+        <ul>
+            <li><a  href="#section" class="active" >Home</a></li>
+            <li><a href="#cont3">History</a></li>
+            <li><button onclick="logout()" class="btn btn-danger rounded-5">Logout</button></li>
+
+        </ul>
+    </header>
+<section>
+    <img src="https://img.freepik.com/free-vector/dark-blue-memphis-blog-banner-template_53876-98946.jpg?w=1380&t=st=1701102402~exp=1701103002~hmac=de4a46bfe59ae5cb7831330247906f368dad5b600d33929b541b7708b3e193d0" id="bg" alt="">
+    <div id="section">
+        <h1 id="heading">Welcome <span id="un"> &nbsp;User</span></h1>
+    </div>
+
+    <div id="cont2">
+        <div class="row">
+            <div class="col-4">
+                <div class="bank" id="bank">
+                    <div id="container" class="container">
+                       
+                        <h3 class="text-center fw-bold ">Income</h3>
+                        <input type="text" class="form-control mt-5 rounded-5 shadow-lg" id="ddesc" placeholder="Description">
+                        <input type="text" class="form-control mt-4 rounded-5 shadow-lg" id="damt" placeholder="Enter the Amount">
+                        <div class="bttn text-center mt-4">
+                        <button onclick="deposit();updateTable();" class="btn btn-primary w-50 rounded-5 mb-5 shadow-lg ">ADD</button>
+                        <p id="dbal"></p>
+                        </div>
+                        
+                    </div>
+                    </div>
+            </div>
+            <div class="col-4">
+               <div id="dispSavings" >
+               
+                <div class="savings">
+                    
+                        <div  id="disp" style="background: rgba(6, 153, 55, 0.411);">
+                           <div class="disp">
+                            <h3 class="text-center fw-bold mt-5 ">Your Savings</h3>
+                            <div class="text" id="savi">
+                                <h4 class="text-center t fw-bold " id="sav" style="color:greenyellow" id="savings"> </h4></div>
+                           </div>
+                                     
+                        </div>
+                </div>
+                <div class="expe ms-4">
+                    <div  id="disp1" style="background: rgb(243, 159, 3);">
+                        <div class="disp">
+                         <h3 class="text-center fw-bold mt-5  ">Your Expenses</h3>
+                         <div class="text" id="expe">
+                         <h4 class="text-center  fw-bold " id="exp" style="color:rgb(255, 0, 0)" id="savings"> </h4></div>
+                        </div>
+                                  
+                     </div>
+                </div>
+                   
+                    </div>
+            </div>
+            <div class="col-4">
+                
+                    <div class="bank">
+                        <div id="container" class="container">
+                           
+                            <h3 class="text-center fw-bold ">Expenses</h3>
+                            <input type="text" class="form-control mt-5 rounded-5 shadow-lg" id="wdesc" placeholder="Description">
+                            <input type="text" class="form-control mt-4 rounded-5 shadow-lg" id="wamt" placeholder="Enter the Amount">
+                            <div class="bttn text-center mt-4">
+                            <button onclick="withdraw();wupdateTable();" class="btn btn-primary w-50  rounded-5 mb-5 shadow-lg ">ADD</button>
+                            <p id="wbal"></p>
+                            </div>
+                            
+                        </div>
+                        </div>           
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="history" id="#history">
+    <img src="https://img.freepik.com/free-vector/dark-blue-memphis-blog-banner-template_53876-98946.jpg?w=1380&t=st=1701102402~exp=1701103002~hmac=de4a46bfe59ae5cb7831330247906f368dad5b600d33929b541b7708b3e193d0" id="bg" alt="">
+   <div id="cont3">
+    <h1 class="text-light text-center mb-4 fw-bold text-decoration-underline">History</h1><br>
+ 
+    <div style="display: flex;" class="sort ">  <button style="position:absolute;  width:10vw" onclick="Clear()" class="btn btn-danger rounded-4" >Clear</button></div>
+    <div class="row">
+        <div class="col-6"> 
+            <h2 class="fw-bold text-success text-center">Income</h2>
+            <table class="table table-striped table-success">
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Date & Time</th>
+              </tr>
+            </thead>
+            <tbody id="result">
+              
+             
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6">
+            <h2 class="fw-bold text-danger text-center">Expenses</h2>
+            <table class="table table-striped table-danger">
+                <thead>
+                  <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Balance</th>
+                    <th scope="col">Date & Time</th>
+                  </tr>
+                </thead>
+                <tbody id="wresult">
+                 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+   
+
+</section>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="./javascript/home.js"></script>
+</html>
